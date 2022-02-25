@@ -81,15 +81,9 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   The nano command created a new text file called "seed.fasta" in your working directory. To exit and save, type Ctrl+X. You will be prompted with the following message: 
   
-  "Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?" 
+  "Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?" Hit the y key to respond with "yes." You will be prompted again with the message: 
   
-  Hit the y key to respond with "yes." 
-  
-  You will be prompted again with the message: 
-  
-  "File Name to Write: seed.fasta". 
-  
-  Hit the enter key to confirm the name of the file and the nano program will exit. Congrats, you have just created a text file using the command line interface!
+  "File Name to Write: seed.fasta". Hit the enter key to confirm the name of the file and the nano program will exit. Congrats, you have just created a text file using the command line interface!
   
   We are now ready to run our assembly software, but running programs on Hummingbird is a little bit different than running programs on our own personal computers. Hummingbird, like all computing clusters, uses job scheduling software to organize jobs that are submitted to run. Right now, we are all connected to the login/head node. This node is a server that is great for navigating the file system and creating/modifying directories and text files, but is not where we want to actually run our analysis. If all of us started running code on the login node, we would slow down or crash the system. Instead, we will submit our code to the job scheduler, which will delegate memory and time on other "compute" nodes that are linked to the login node.
   
@@ -151,6 +145,6 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   Another option would be to open a new terminal window using Cmd+N. You can use the `scp` command, which stands for secure copy, to copy a file from Hummingbird to your local machine. In this command, you have to specify the full path to both the file on Hummingbird and the destination on your local computer. 
   
-  `scp <your_cruzid>@hbfeeder.ucsc.edu:/hb/groups/bioe137/<your_last_name>/Circularized_assembly_1_<your_project_name>.fasta ~/desktop/`
+  `scp <cruzid>@hbfeeder.ucsc.edu:/hb/groups/bioe137/<your_last_name>/Circularized_assembly_1_<your_project_name>.fasta ~/desktop/`
     
    This will copy the fasta file to your desktop, and you can now input this file into Geneious for analysis! Blast your mitochondrial assembly and build a phylogenetic tree from your sequence and the closest Blast hits!
