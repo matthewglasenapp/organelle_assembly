@@ -149,6 +149,8 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   Another option would be to open a new terminal window using Cmd+N. You can use the `scp` command, which stands for secure copy, to copy a file from Hummingbird to your local machine. In this command, you have to specify the full path to both the file on Hummingbird and the destination on your local computer. 
   
-  `scp <cruzid>@hbfeeder.ucsc.edu:/hb/groups/bioe137/<your_last_name>/Circularized_assembly_1_<your_project_name>.fasta ~/desktop/`
+  ```
+  scp <cruzid>@hbfeeder.ucsc.edu:/hb/groups/bioe137/<your_last_name>/Circularized_assembly_1_<your_project_name>.fasta ~/desktop/
+  ```
     
    This will copy the fasta file to your desktop, and you can now input this file into Geneious for analysis! Blast your mitochondrial assembly and build a phylogenetic tree from your sequence and the closest Blast hits!
