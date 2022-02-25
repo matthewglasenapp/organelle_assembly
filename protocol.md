@@ -96,3 +96,15 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   contigs_tmp_<your_project_name>.txt was a temporary file that was created during assembly that should now be blank and can be deleted. 
   
   If the assembly was successful, your organelle assembly will be contained in the "Circularized_assembly_1_<your_project_name>.fasta" file! Let's take a look at it using the `less` command. 
+  
+  Let's save a copy of the organelle assembly to your local computer so you can upload it to Geneious! There are a couple of ways to do this. A really straightforward way would be to use the command
+  
+  `cat Circularized_assembly_1_<your_project_name>.fasta`
+  
+  This will print the entire file to the terminal window and you can copy and paste it into a text editor on your personal computer. 
+  
+  Another option would be to open a new terminal window using Cmd+N. You can use the `scp` command, which stands for secure copy, to copy a file from Hummingbird to your local machine. In this command, you have to specify the full path to both the file on Hummingbird and the destination on your local computer. 
+  
+    `scp <your_cruzid>@hbfeeder.ucsc.edu:/hb/groups/bioe137/<your_last_name>/Circularized_assembly_1_<your_project_name>.fasta ~/desktop/`
+    
+   This will copy the fasta file to your desktop, and you can now input this file into Geneious for analysis!
