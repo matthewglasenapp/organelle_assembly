@@ -2,7 +2,9 @@ We will be doing our organellar genome assemblies on UCSC's Hummingbird computat
 
 We interact with Hummingbird via the command line interface using UNIX commands. UNIX is an operating system that includes a collection of built-in tools and commands. To log in to hummingbird, first open the terminal application (Mac users) or Cygwin (Windows users). We will use the `ssh` command to access Hummingbird, which stands for secure shell and provides a secure connection between your computer and the Hummingbird server. To login, you will use the following command:  
   
-  `ssh <your_cruzid>@hb.ucsc.edu`  
+  ```
+  ssh <your_cruzid>@hb.ucsc.edu
+  ```
   
   Replace <your_cruzid> with your UCSC username in your command. You will be prompted to enter your password. For security measures, you will not be able to see the characters you are entering. Type your password and press enter.
   
@@ -40,7 +42,9 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   Now, lets check out the directory that contains the NOVOPlasty assembly software.
   
-  `cd /hb/groups/bioe137/NOVOPlasty/`  
+  ```
+  cd /hb/groups/bioe137/NOVOPlasty/
+  ```
   
   `ls`  
   
@@ -62,11 +66,15 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   The top half of the file includes paramters that you will need to change by either adding or modifying the text to the right of the = signs. The bottom half of the file provides instructions for how to fill in information for each field. Each of you will need this configuration file in your own directories. Let's make a copy of this file and move it to our personal directories using the `cp` command, which stands for copy. 
   
-  `cp config.txt /hb/groups/bioe137/<your_last_name>/`
+  ```
+  cp config.txt /hb/groups/bioe137/<your_last_name>/
+  ```
   
   Let's confirm that we copied the file to the correct directory by navigating to that directory. 
   
-  `cd /hb/groups/bioe137<your_last_name>/`
+  ```
+  cd /hb/groups/bioe137<your_last_name>/
+  ```
   
   `ls`
   
@@ -97,13 +105,18 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   You should see: 
   
-  `/hb/groups/bioe137/<your_last_name`. 
+  ```
+  /hb/groups/bioe137/<your_last_name
+  ```
   
   Now, lets create an SBATCH script called "run_novoplasty.sh." 
   
-  `nano run_novoplasty.sh`
+  ```
+  nano run_novoplasty.sh
+  ```
   
   Copy/paste the following text into the file
+
 ```
 #!/bin/bash  
 #SBATCH --job-name=novoplasty_assembly
@@ -117,6 +130,7 @@ We interact with Hummingbird via the command line interface using UNIX commands.
     
 /hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt
 ```
+
   The first line of the script tells the computer to use bash when executing the script. Bash is the default command language of the UNIX shell. Lines 2-9 provide the Hummingbird job scheduler some information about the job. Hummingbird uses Slurm Workload Manager, an open-source job scheduler designed for clusters. Change line 4 to include your email address. We will talk about the meaning of the rest of the options as a group. 
   
   The last line of the file is the code that we actually want to run. We want to run the NOVOPlasty software, but we have to tell the computer where to find the executable. NOVOPlasty takes a configuration file as input. We need to supply NOVOPlasty with this file using the -c argument. The config.txt file includes the path to your seed.FASTA file and specifies other information. 
@@ -139,11 +153,15 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   If the assembly was successful, your organelle assembly will be contained in the "Circularized_assembly_1_<your_project_name>.fasta" file! Let's take a look at it using the `less` command
   
-  `less Circularized_assembly_1_<your_project_name>.fasta`
+  ```
+  less Circularized_assembly_1_<your_project_name>.fasta
+  ```
   
   Let's save a copy of the organelle assembly to your local computer so you can upload it to Geneious! There are a couple of ways to do this. A really straightforward way would be to use the following command to print the contents of the file to the terminal:
   
-  `cat Circularized_assembly_1_<your_project_name>.fasta`
+  ```
+  cat Circularized_assembly_1_<your_project_name>.fasta
+  ```
   
   This will print the entire file to the terminal window and you can copy and paste it into a text editor on your personal computer. 
   
