@@ -63,17 +63,17 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   
   Copy/paste the following text into the file
 ```
-    #!/bin/bash  
-    #SBATCH --job-name=novoplasty_assembly
-    #SBATCH --mail-type=ALL    
-    #SBATCH --mail-user=<your_email_address>  
-    #SBATCH --output=novoplasty_assembly_%j.out    
-    #SBATCH --nodes=1    
-    #SBATCH --partition=Instruction    
-    #SBATCH --mem=10GB    
-    #SBATCH --time=2:00:00  
+#!/bin/bash  
+#SBATCH --job-name=novoplasty_assembly
+#SBATCH --mail-type=ALL    
+#SBATCH --mail-user=<your_email_address>  
+#SBATCH --output=novoplasty_assembly_%j.out    
+#SBATCH --nodes=1    
+#SBATCH --partition=Instruction    
+#SBATCH --mem=10GB    
+#SBATCH --time=2:00:00  
     
-    /hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt
+/hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt
 ```
   The first line of the script tells the computer to use bash when executing the script. Bash is the command language of the UNIX shell. Lines 2-9 provide the Hummingbird job scheduler some information about the job. Hummingbird uses Slurm Workload Manager, an open-source job scheduler designed for clusters. Change line 4 to include your email address. We will talk about what the rest of the options mean as a group. 
   
@@ -90,3 +90,9 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   `squeue -u <your_cruzid>`
   
   You will get an email notification when your job begins and when your job is complete. 
+  
+  When your job completes, you will notice that you now have four additional files in your directory. "novoplasty_assembly_129749.out" and "log_<your_project_name>.txt" are identical. They print the results of the job and any errors that occurred while running the job. Open one of them and scroll to the bottom to see the results of your assembly!
+  
+  contigs_tmp_<your_project_name>.txt was a temporary file that was created during assembly that should now be blank and can be deleted. 
+  
+  If the assembly was successful, your organelle assembly will be contained in the "Circularized_assembly_1_<your_project_name>.fasta" file! Let's take a look at it using the `less` command. 
