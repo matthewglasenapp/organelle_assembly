@@ -81,9 +81,13 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   The nano command created a new text file called "seed.fasta" in your working directory. To exit and save, type Ctrl+X. You will be prompted with the following message: 
   
-  "Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?" Hit the y key to respond with "yes." You will be prompted again with the message: 
+  `"Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?"` 
   
-  "File Name to Write: seed.fasta". Hit the enter key to confirm the name of the file and the nano program will exit. Congrats, you have just created a text file using the command line interface!
+  Hit the y key to respond with "yes." You will be prompted again with the message: 
+  
+  `"File Name to Write: seed.fasta".` 
+  
+  Hit the enter key to confirm the name of the file and the nano program will exit. Congrats, you have just created a text file using the command line interface!
   
   We are now ready to run our assembly software, but running programs on Hummingbird is a little bit different than running programs on our own personal computers. Hummingbird, like all computing clusters, uses job scheduling software to organize jobs that are submitted to run. Right now, we are all connected to the login/head node. This node is a server that is great for navigating the file system and creating/modifying directories and text files, but is not where we want to actually run our analysis. If all of us started running code on the login node, we would slow down or crash the system. Instead, we will submit our code to the job scheduler, which will delegate memory and time on other "compute" nodes that are linked to the login node.
   
