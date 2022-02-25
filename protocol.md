@@ -57,26 +57,36 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   
   We are now ready to run our assembly software, but running programs on Hummingbird is a little bit different than running programs on our own personal computers. Hummingbird, and all computing clusters, use job scheduling software to organize jobs that are submitted to run. Right now, we are all connected to the login/head node. This node is a server that is great for navigating the file system and creating/modifying directories and text files, but is not where we want to actually run our analysis. If all of us started running code on the login node, we would slow down or crash the system. Instead, we will submit our code to the job scheduler, which will delegate memory and time on other "compute" nodes that are linked to the login node.
   
-  To use the job scheduler, we have to create an SBATCH script that specifies the resources we are requesting and includes the code that we want to run. We will title our SBATCH scripts "run_novoplasty.sh."
+  To use the job scheduler, we have to create an SBATCH script that specifies the resources we are requesting and includes the code that we want to run. First, verify that you are in the correct directory using `pwd`. You should see `/hb/groups/bioe137/<your_last_name`. Now, lets create an SBATCH script called "run_novoplasty.sh." 
   
   `nano run_novoplasty.sh`
   
-  Copy/paste the following text
+  Copy/paste the following text into the file
+```
+    #!/bin/bash  
+    #SBATCH --job-name=novoplasty_assembly
+    #SBATCH --mail-type=ALL    
+    #SBATCH --mail-user=<your_email_address>  
+    #SBATCH --output=novoplasty_assembly_%j.out    
+    #SBATCH --nodes=1    
+    #SBATCH --partition=Instruction    
+    #SBATCH --mem=10GB    
+    #SBATCH --time=2:00:00  
+    
+    /hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt
+```
+  The first line of the script tells the computer to use bash when executing the script. Bash is the command language of the UNIX shell. Lines 2-9 provide the Hummingbird job scheduler some information about the job. Hummingbird uses Slurm Workload Manager, an open-source job scheduler designed for clusters. Change line 4 to include your email address. We will talk about what the rest of the options mean as a group. 
   
-`
-#!/bin/bash
-#SBATCH --job-name=novoplasty_assembly
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=mglasena@ucsc.edu
-#SBATCH --output=novoplasty_assembly_%j.out
-#SBATCH --nodes=1
-#SBATCH --partition=Instruction
-#SBATCH --mem=10GB
-#SBATCH --time=2:00:00
-
-/hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt
-`
+  The last line of the file is the code that we actually want to run. We want to run the NOVOPlasty software, but we have to tell the computer where to find the executable. NOVOPlasty takes a configuration file as input. We need to supply NOVOPlasty with this file using the -c argument. The config.txt file includes the path to your seed.FASTA file and specifies other information. 
   
+  Save and exit using Ctrl+X, followed by y, followed by the enter key. 
   
+  We are now ready to submit the script to the job scheduler. We submit the job with the following code:
   
+  `sbatch run_novoplasty.sh`
   
+  After pressing the return key, you should get confirmation that the job was submitted. You can monitor the status of your job using the following command:
+  
+  `squeue -u <your_cruzid>`
+  
+  You will get an email notification when your job begins and when your job is complete. 
