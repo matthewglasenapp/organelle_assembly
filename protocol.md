@@ -29,7 +29,7 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   
   `less README.md`
   
-  You can navigate the contents of the file by using either your trackpad or the arrow keys on your keyboard. This file contains the instrutions for running the NOVOPlasty software. To exit out of this view, simply type `q`, which stands for quit. 
+  You can navigate the contents of the file by using either your trackpad or the arrow keys on your keyboard. This file contains the instrutions for running the NOVOPlasty software. To exit out of this view, simply hit the q key, which stands for quit. 
   
   Let's try one more option for viewing and editing text files. nano is a built-in text editor on UNIX operating systems. Type the following command and press enter:
   
@@ -53,9 +53,27 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   
   You should now see config.txt in your personal directory. 
   
-  One of the fields, "Seed Input," asks us for the path to our seed sequence file. We need to get your seed sequence files on Hummingbird. The easiest way to do this is to copy the contents of your seed sequence file, go the the terminal window that is connected to hummingbird, type `nano seed.fasta` and hit enter, and use Cmd+V to paste the contents. The nano command created a new text file called "seed.fasta" in your working directory. To exit and save, type Ctrl+X. You will be prompted witht the following message: "Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?" Hit the `y` key to respond with "yes." You will be prompted again with the message "File Name to Write: seed.fasta". Hit the enter key to confirm the name of the file and the nano program will exit. Congrats, you have just created a text file using the command line interface!
+  One of the fields, "Seed Input," asks us for the path to our seed sequence file. We need to get your seed sequence files on Hummingbird. The easiest way to do this is to copy the contents of your seed sequence file, go the the terminal window that is connected to hummingbird, type `nano seed.fasta` and hit enter, and use Cmd+V to paste the contents. The nano command created a new text file called "seed.fasta" in your working directory. To exit and save, type Ctrl+X. You will be prompted witht the following message: "Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?" Hit the y key to respond with "yes." You will be prompted again with the message "File Name to Write: seed.fasta". Hit the enter key to confirm the name of the file and the nano program will exit. Congrats, you have just created a text file using the command line interface!
   
-  We are now ready to run 
+  We are now ready to run our assembly software, but running programs on Hummingbird is a little bit different than running programs on our own personal computers. Hummingbird, and all computing clusters, use job scheduling software to organize jobs that are submitted to run. Right now, we are all connected to the login/head node. This node is a server that is great for navigating the file system and creating/modifying directories and text files, but is not where we want to actually run our analysis. If all of us started running code on the login node, we would slow down or crash the system. Instead, we will submit our code to the job scheduler, which will delegate memory and time on other "compute" nodes that are linked to the login node.
+  
+  To use the job scheduler, we have to create an SBATCH script that specifies the resources we are requesting and includes the code that we want to run. We will title our SBATCH scripts "run_novoplasty.sh."
+  
+  `nano run_novoplasty.sh`
+  
+  Copy/paste the following text
+  
+  `#!/bin/bash
+#SBATCH --job-name=novoplasty_assembly
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=mglasena@ucsc.edu
+#SBATCH --output=novoplasty_assembly_%j.out
+#SBATCH --nodes=1
+#SBATCH --partition=Instruction
+#SBATCH --mem=10GB
+#SBATCH --time=2:00:00
+
+/hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt`
   
   
   
