@@ -63,7 +63,8 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   
   Copy/paste the following text
   
-  `#!/bin/bash
+`
+#!/bin/bash
 #SBATCH --job-name=novoplasty_assembly
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=mglasena@ucsc.edu
@@ -73,7 +74,8 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
 #SBATCH --mem=10GB
 #SBATCH --time=2:00:00
 
-/hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt`
+/hb/groups/bioe137/NOVOPlasty/NOVOPlasty4.3.1.pl -c config.txt
+`
   
   
   
