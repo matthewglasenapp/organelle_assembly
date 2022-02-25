@@ -81,11 +81,11 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   The nano command created a new text file called "seed.fasta" in your working directory. To exit and save, type Ctrl+X. You will be prompted with the following message: 
   
-  `"Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?"` 
+  "Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?"
   
   Hit the y key to respond with "yes." You will be prompted again with the message: 
   
-  `"File Name to Write: seed.fasta".` 
+  "File Name to Write: seed.fasta" 
   
   Hit the enter key to confirm the name of the file and the nano program will exit. Congrats, you have just created a text file using the command line interface!
   
