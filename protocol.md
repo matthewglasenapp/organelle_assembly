@@ -6,4 +6,6 @@ To log in to hummingbird, first open the terminal application (Mac users) or Cyg
   
   `ssh <your_cruzid>@hb.ucsc.edu`  
   
-  Replace `<your_cruzid>` with your UCSC username in your command. You will be prompted to enter your password. For security measures, you will not be able to see the characters you are entering. Type your password and press return/enter. 
+  Replace `<your_cruzid>` with your UCSC username in your command. You will be prompted to enter your password. For security measures, you will not be able to see the characters you are entering. Type your password and press enter.
+  
+  
