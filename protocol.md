@@ -75,7 +75,7 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   Let's confirm that we copied the file to the correct directory by navigating to that directory. 
   
   ```
-  cd /hb/groups/bioe137<your_last_name>/
+  cd /hb/groups/bioe137/<your_last_name>/
   ```
   
   `ls`
@@ -153,16 +153,16 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   
   contigs_tmp_<your_project_name>.txt was a temporary file that was created during assembly that should now be blank and can be deleted. 
   
-  If the assembly was successful, your organelle assembly will be contained in the "Circularized_assembly_1_<your_project_name>.fasta" file! Let's take a look at it using the `less` command
+  If the assembly was successful, your organelle assembly will be contained in the "Contigs_1_<your_project_name>.fasta" or "Circularized_assembly_1_<your_project_name>.fasta" if your assembly circularized. Let's take a look at the assembly using the `less` command
   
   ```
-  less Circularized_assembly_1_<your_project_name>.fasta
+  less Contigs_1_<your_project_name>.fasta
   ```
   
   Let's save a copy of the organelle assembly to your local computer so you can upload it to Geneious! There are a couple of ways to do this. A really straightforward way would be to use the following command to print the contents of the file to the terminal:
   
   ```
-  cat Circularized_assembly_1_<your_project_name>.fasta
+  cat Contigs_1_<your_project_name>.fasta
   ```
   
   This will print the entire file to the terminal window and you can copy and paste it into a text editor on your personal computer. 
@@ -170,7 +170,7 @@ We interact with Hummingbird via the command line interface using UNIX commands.
   Another option would be to open a new terminal window using Cmd+N. You can use the `scp` command, which stands for secure copy, to copy a file from Hummingbird to your local machine. In this command, you have to specify the full path to both the file on Hummingbird and the destination on your local computer. 
   
   ```
-  scp <cruzid>@hbfeeder.ucsc.edu:/hb/groups/bioe137/<your_last_name>/Circularized_assembly_1_<your_project_name>.fasta ~/desktop/
+  scp <cruzid>@hbfeeder.ucsc.edu:/hb/groups/bioe137/<your_last_name>/Contigs_1_<your_project_name>.fasta ~/desktop/
   ```
     
    This will copy the fasta file to your desktop, and you can now input this file into Geneious for analysis! Blast your mitochondrial assembly and build a phylogenetic tree from your sequence and the closest Blast hits!
